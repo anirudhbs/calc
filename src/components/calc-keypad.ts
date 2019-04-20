@@ -11,7 +11,22 @@ export class CalcKeypad extends LitElement {
       resultNode.textContent = ""
     }
 
-    resultNode.textContent = resultNode.textContent + e.target.name
+    const value = e.target.name
+    const operators = ["+", "-", "*", "/"]
+
+    switch (value) {
+      case "+":
+      case "-":
+      case "*":
+      case "/": {
+        if (resultNode.textContent === "" || operators.includes(resultNode.textContent.slice(-1))) {
+          break
+        }
+      }
+      default: {
+        resultNode.textContent = resultNode.textContent + value
+      }
+    }
     this.resetOnInput = false
   }
 
