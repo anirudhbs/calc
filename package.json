@@ -4,8 +4,8 @@
   "description": "A simple calculator",
   "main": "index.js",
   "scripts": {
-    "start": "polymer serve",
-    "build": "polymer build"
+    "start": "gulp serve",
+    "build": "tsc && polymer build --auto-base-path && gulp prpl-server"
   },
   "author": "anirudhbs",
   "license": "MIT",
@@ -13,6 +13,10 @@
     "lit-element": "^2.1.0"
   },
   "devDependencies": {
-    "polymer-cli": "^1.9.8"
+    "polymer-cli": "^1.9.8",
+    "del": "^4.1.0",
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0"
   }
 }
