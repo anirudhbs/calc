@@ -1,0 +1,18 @@
+{
+  "name": "calc",
+  "version": "0.0.1",
+  "description": "A simple calculator",
+  "main": "index.js",
+  "scripts": {
+    "start": "polymer serve",
+    "build": "polymer build"
+  },
+  "author": "anirudhbs",
+  "license": "MIT",
+  "dependencies": {
+    "lit-element": "^2.1.0"
+  },
+  "devDependencies": {
+    "polymer-cli": "^1.9.8"
+  }
+}
