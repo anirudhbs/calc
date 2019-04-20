@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:700);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font: 400 46px "Quicksand", sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+html {
+  background: #229ad7;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(34, 156, 219, 1) 0%,
+    rgba(10, 114, 187, 1) 100%
+  );
+  background-attachment: fixed;
+}
+
+.screen {
+  text-align: center;
+  height: 1.5em;
+}

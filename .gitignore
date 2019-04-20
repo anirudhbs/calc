@@ -2,5 +2,5 @@ node_modules/
 .todo
 package-lock.json
 build/
-src/*/*.js
 src/*.js
+src/*/*.js

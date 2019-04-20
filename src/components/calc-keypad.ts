@@ -1,4 +1,4 @@
-import { LitElement, html, property, customElement } from "lit-element"
+import { LitElement, html, css, property, customElement } from "lit-element"
 
 @customElement("calc-keypad")
 export class CalcKeypad extends LitElement {
@@ -25,21 +25,78 @@ export class CalcKeypad extends LitElement {
     document.querySelector("#result").textContent = ""
   }
 
+  static get styles() {
+    return css`
+      button {
+        height: 3em;
+        width: 8em;
+        margin-top: 0.5em;
+        margin-left: 0.5em;
+      }
+
+      .operator {
+        background: #536ea5;
+        margin-right: 0;
+      }
+
+      .operator:hover {
+        background: #5d7bba;
+        color: #ffffff;
+      }
+
+      .keys button {
+        background: #523d98;
+        font-size: 27px;
+        cursor: pointer;
+        width: 3em;
+        height: 2em;
+        border-radius: 5px;
+        box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+        margin: 0 7px 11px 0;
+        color: #f1c851;
+        line-height: 46px;
+        text-align: center;
+        user-select: none;
+        outline: 0 solid;
+        transition: all 0.2s ease;
+      }
+
+      .keys button:hover {
+        transform: scale(1.05);
+      }
+
+      .eval {
+        background: #d6643f;
+        box-shadow: 0px 4px #c3502b;
+        color: #f1c851;
+      }
+
+      .eval:hover {
+        background: #f37c4c;
+        box-shadow: 0px 4px #d65f3d;
+        color: #ffffff;
+      }
+
+      .clear {
+        background: #523d98;
+        box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .clear:hover {
+        background: #f68991;
+        box-shadow: 0px 4px #d3545d;
+        color: white;
+      }
+    `
+  }
+
   render() {
     return html`
-      <style>
-        button {
-          height: 3em;
-          width: 8em;
-          margin-top: 0.5em;
-          margin-left: 0.5em;
-        }
-      </style>
-      <div className="button">
-        <button name="(" @click="${this.handleClick}">(</button>
-        <button name="CE" @click="${this.clear}">CE</button>
+      <div class="keys">
+        <button class="operator" name="(" @click="${this.handleClick}">(</button>
+        <button name="CE" @click="${this.clear}" class="clear">CE</button>
         <button name=")" @click="${this.handleClick}">)</button>
-        <button name="C" @click="${this.clear}">C</button>
+        <button name="C" @click="${this.clear}" class="clear">C</button>
         <br />
 
         <button name="1" @click="${this.handleClick}">1</button>
@@ -62,7 +119,7 @@ export class CalcKeypad extends LitElement {
 
         <button name="." @click="${this.handleClick}">.</button>
         <button name="0" @click="${this.handleClick}">0</button>
-        <button name="=" @click="${this.computeValue}">=</button>
+        <button name="=" @click="${this.computeValue}" class="eval">=</button>
         <button name="/" @click="${this.handleClick}">÷</button>
         <br />
       </div>
