@@ -12,21 +12,21 @@ export class CalcKeypad extends LitElement {
     }
 
     const value = e.target.name
-    const operators = ["+", "-", "*", "/", "."]
+    const operators = ["+", "-", "*", "/"]
 
-    switch (value) {
-      case ".":
-      case "+":
-      case "-":
-      case "*":
-      case "/": {
-        if (resultNode.textContent === "" || operators.includes(resultNode.textContent.slice(-1))) {
-          break
-        }
-      }
-      default: {
+    if (value === "+" || value === "-" || value === "*" || value === "/") {
+      if (resultNode.textContent === "" || operators.includes(resultNode.textContent.slice(-1))) {
+        // do nothing
+        // todo: use switch case
+      } else {
         resultNode.textContent = resultNode.textContent + value
       }
+    } else if (value === ".") {
+      if (resultNode.textContent.slice(-1) !== ".") {
+        resultNode.textContent = resultNode.textContent + value
+      }
+    } else {
+      resultNode.textContent = resultNode.textContent + value
     }
     this.resetOnInput = false
   }
@@ -39,6 +39,11 @@ export class CalcKeypad extends LitElement {
 
   clear() {
     document.querySelector("#result").textContent = ""
+  }
+
+  backSpace() {
+    const value = document.querySelector("#result").textContent
+    document.querySelector("#result").textContent = value.slice(0, value.length - 1)
   }
 
   static get styles() {
@@ -84,7 +89,7 @@ export class CalcKeypad extends LitElement {
         <div class="row">
           <button name="(" @click="${this.handleClick}">(</button>
           <button name=")" @click="${this.handleClick}">)</button>
-          <button name="C" @click="${this.clear}" class="special">C</button>
+          <button name="C" @click="${this.backSpace}" class="special">C</button>
           <button name="CE" @click="${this.clear}" class="special">CE</button>
         </div>
 
