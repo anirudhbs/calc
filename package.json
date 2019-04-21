@@ -13,10 +13,11 @@
     "lit-element": "^2.1.0"
   },
   "devDependencies": {
-    "polymer-cli": "^1.9.8",
     "del": "^4.1.0",
     "gulp": "^4.0.0",
     "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0"
+    "gulp-replace": "^1.0.0",
+    "polymer-cli": "^1.9.8",
+    "typescript": "^3.4.4"
   }
 }

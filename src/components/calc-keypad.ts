@@ -12,9 +12,10 @@ export class CalcKeypad extends LitElement {
     }
 
     const value = e.target.name
-    const operators = ["+", "-", "*", "/"]
+    const operators = ["+", "-", "*", "/", "."]
 
     switch (value) {
+      case ".":
       case "+":
       case "-":
       case "*":
